@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/smarttourlatest",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

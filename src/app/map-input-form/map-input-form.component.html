@@ -1,0 +1,30 @@
+<div class="form-container leaflet-control-container">
+<div id='loader' class='loader loader-center' #loader></div>
+<div id='collapse' data-toggle="collapse" data-target="#search" class="tomtom-results-list tomtom-foldable leaflet-popup-content-wrapper leaflet-control tomtom-foldable--collapsed"><div class="tomtom-foldable__header"><h4 class="tomtom-foldable__title">Search</h4><button class="tomtom-foldable__close tomtom-foldable--clickable">×</button><button class="tomtom-foldable__show tomtom-foldable--clickable">show</button></div><div class="tomtom-foldable__content" style="max-height: 0px;"><div class="tomtom-foldable__content-header"></div></div></div>
+
+    <div id='search' class='flex-vertical use-all-space collapse'>
+        <form [formGroup]="inputMapForm" (ngSubmit)="submitForm()">
+            <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-filter"></i></span>
+                <input class="span3 form-control" name="place" id="place" formControlName="place" placeholder='Enter place you want to visit' type="text"> 
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                <input class="span3 form-control" name="query" id="query" formControlName="query" placeholder='Search for places(e.g. waterfalls)...' type="text"> 
+            </div>  
+             <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-briefcase"></i></span>
+            <select data-style="btn-primary" class="selectpicker span3 form-control" id="price" formControlName="price">
+                <option [value]=0 [selected]=true>Free</option>
+                <option [value]=1>Cheap</option>
+                <option [value]=2>Moderate</option>
+                <option [value]=3>Costly</option>
+                <option [value]=4>Expensive</option>
+            </select>            </div>       
+
+            </div>
+            <button class="btn" type="submit">Search Places</button>
+        </form>
+</div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "name": "TourGuide",
+  "short_name": "TourGuide",
+  "apple-mobile-web-app-title": "TourGuide",
+  "start_url": "/",
+  "background_color":"#3498db",
+  "theme_color": "#D3D3D3",
+  "orientation": "any",
+  "display": "standalone",
+  "apple-mobile-web-app-capable":"standalone",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+  "dir": "ltr",
+  "lang": "en-US",
+  "scope": "/", 
+  "description": "Smart tour guide for any place"
+}

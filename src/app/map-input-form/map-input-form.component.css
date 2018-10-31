@@ -1,0 +1,58 @@
+.form-container{
+  width: 80%;
+  height: auto;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 1000000;
+  text-align: center;
+  padding: 0% 10% 0% 10%;
+  margin-top: 1%;
+}
+
+input, select {
+    background: white;
+}
+
+.btn{
+    background-color: #6a5acd;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.input-group{
+    margin-bottom: 5px;
+}
+
+.form-control:focus{
+    -webkit-box-shadow: 30px 32px 173px -7px rgba(106,90,205,1);
+    -moz-box-shadow: 30px 32px 173px -7px rgba(106,90,205,1);
+    box-shadow: 30px 32px 173px -7px rgba(106,90,205,1);
+}
+
+input::placeholder {
+  color: grey;
+  font-size: 1em;
+  font-style: italic;
+}
+
+#search{
+    margin-top: 50px;
+}
+
+.tomtom-results-list.collapsed .tomtom-foldable__show.tomtom-foldable--clickable{
+    display: block;
+}
+
+.tomtom-results-list .tomtom-foldable__show.tomtom-foldable--clickable{
+    display: none;
+}
+
+.tomtom-results-list.collapsed .tomtom-foldable__close.tomtom-foldable--clickable{
+    display: none;
+}
+
+.tomtom-results-list .tomtom-foldable__close.tomtom-foldable--clickable{
+    display: block;
+}
