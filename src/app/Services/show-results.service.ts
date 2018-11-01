@@ -5,12 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class ShowResultsService {
 
-  constructor() { }
+    constructor() {}
 
-      /*
-    * Get result name from response
-    */
-    getResultName = (result) =>{
+    /*
+     * Get result name from response
+     */
+    getResultName = (result) => {
         if (typeof result.poi !== 'undefined' && typeof result.poi.name !== 'undefined') {
             return result.poi.name;
         }
@@ -22,9 +22,9 @@ export class ShowResultsService {
     }
 
     /*
-    * Get result address from response
-    */
-      getResultAddress = (result) =>{
+     * Get result address from response
+     */
+    getResultAddress = (result) => {
         if (typeof result.address !== 'undefined') {
             var address = [];
 
@@ -44,9 +44,9 @@ export class ShowResultsService {
     }
 
     /*
-    * Prepare result element for popup and result list
-    */
-      prepareResultElement = (tomtom, result) =>{
+     * Prepare result element for popup and result list
+     */
+    prepareResultElement = (tomtom, result) => {
         var resultElement = new tomtom.L.DomUtil.create('div', 'geoResponse-result');
         var name = this.getResultName(result);
         var adress = this.getResultAddress(result);

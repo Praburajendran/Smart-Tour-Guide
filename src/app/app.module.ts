@@ -5,8 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { MapViewComponent } from './map-view/map-view.component';
-import { MapInputFormComponent } from './map-input-form/map-input-form.component';
+import { MapViewComponent } from './Components/map-view/map-view.component';
+import { MapInputFormComponent } from './Components/map-input-form/map-input-form.component';
 
 @NgModule({
   declarations: [
