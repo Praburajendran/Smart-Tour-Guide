@@ -90,7 +90,7 @@ export class MapUtilityService {
      * Clearing Map 
      */
     clearMap() {
-        var mapval = this.map;
+        let mapval = this.map;
         if (this.route) {
             mapval.removeLayer(this.route);
         }
@@ -105,16 +105,16 @@ export class MapUtilityService {
      * Prepare parameters for the search call
      */
     prepareServiceCall = (placeVal, searchName, queryValue, callFlag, coords) => {
-        var selectedLangCode = 'en-US';
-        var queryVal = (placeVal !== 'Your location' && !callFlag) ? placeVal : queryValue //'important tourist attraction';
-        var minFuzzyValue = '1';
-        var maxFuzzyValue = '2';
-        var limitValue = '10';
-        var viewValue = 'IN';
-        var defaultOpts = {
+        let selectedLangCode = 'en-US';
+        let queryVal = (placeVal !== 'Your location' && !callFlag) ? placeVal : queryValue //'important tourist attraction';
+        let minFuzzyValue = '1';
+        let maxFuzzyValue = '2';
+        let limitValue = '10';
+        let viewValue = 'IN';
+        let defaultOpts = {
             unwrapBbox: true
         };
-        var call;
+        let call;
 
         call = this.tomtom[searchName](defaultOpts).query(queryVal);
         if (placeVal !== 'Your location' && !callFlag) {
@@ -136,7 +136,7 @@ export class MapUtilityService {
      * Adding more parameters for the search call
      */
     configureServiceCall(placeVal, call, callFlag, coords) {
-        var coordinates;
+        let coordinates;
         coordinates = this.getLatLng();
         if (placeVal != 'Your location' && callFlag) {
             coordinates = coords;
@@ -185,7 +185,7 @@ export class MapUtilityService {
         });
 
 
-        var routing = this.tomtom.routing({
+        let routing = this.tomtom.routing({
                 traffic: false
             })
             .locations(locations)
@@ -194,7 +194,7 @@ export class MapUtilityService {
 
         routing.go()
             .then((routeJson) => {
-                var dataObj = {
+                let dataObj = {
                     tomtom: this.tomtom,
                     L: this.L,
                     map: this.map,
@@ -248,7 +248,7 @@ export class MapUtilityService {
     };
 
     getLatLng() {
-        var coords = ["51.507351", "-0.127758"];
+        let coords = ["51.507351", "-0.127758"];
         if (this.currgeoposition["latitude"]) {
             coords = [this.currgeoposition["latitude"].toFixed(7).toString(), this.currgeoposition["longitude"].toFixed(7).toString()]
             return [coords[0].trim(), coords[1].trim()];

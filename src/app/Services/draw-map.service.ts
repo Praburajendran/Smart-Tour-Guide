@@ -11,7 +11,7 @@ export class DrawMapService {
     constructor(public showresultsrvc: ShowResultsService) {}
     drawRoute(dataObj, searchResponses, locations, routeJson, placeVal, currentLocation) {
         this.mapData = dataObj;
-        var mas = this.getOptimizedLocations(searchResponses, locations, routeJson.optimizedWaypoints)
+        let mas = this.getOptimizedLocations(searchResponses, locations, routeJson.optimizedWaypoints)
 
         this.drawOptimizedMarker(this.mapData.tomtom, this.mapData.L, mas, currentLocation, placeVal);
         this.mapData.map.fitBounds(this.mapData.route.getBounds(), {
@@ -20,8 +20,8 @@ export class DrawMapService {
     }
 
     getOptimizedLocations = (searchResponses, locations, optimizedWaypoints) => {
-        var optimizedLocations = {};
-        var optimizedLocationsArr = [locations[0]];
+        let optimizedLocations = {};
+        let optimizedLocationsArr = [locations[0]];
         optimizedWaypoints.forEach(function(waypoint) {
             optimizedLocationsArr.push(locations[waypoint.optimizedIndex + 1]);
         });
@@ -35,11 +35,11 @@ export class DrawMapService {
      * Draws markers on the map.
      */
     draw(searchResponses) {
-        var markerOpt = {
+        let markerOpt = {
             noMarkerClustering: true
         };
 
-        var popupOpt = {
+        let popupOpt = {
             popupHoverContent: this.showresultsrvc.getResultName,
             popupContent: this.showresultsrvc.prepareResultElement
         };
@@ -51,9 +51,9 @@ export class DrawMapService {
 
         this.mapData.resultsList.clear().unfold();
         this.mapData.markers.forEach((markerLayer, index) => {
-            var point = searchResponses[index];
-            var geoResponseWrapper = this.showresultsrvc.prepareResultElement(this.mapData.tomtom, point);
-            var viewport = point.viewport;
+            let point = searchResponses[index];
+            let geoResponseWrapper = this.showresultsrvc.prepareResultElement(this.mapData.tomtom, point);
+            let viewport = point.viewport;
             this.mapData.resultsList.addContent(geoResponseWrapper);
             geoResponseWrapper.onclick = () => {
                 if (viewport) {
@@ -71,7 +71,7 @@ export class DrawMapService {
      * Draw search center positon
      */
     drawSearchCenterMarker(currentLocation, placeVal) {
-        var markerOptions = {
+        let markerOptions = {
             title: 'Search Center\nLatitude: ' + currentLocation[0] +
                 '\nLongitude: ' + currentLocation[1],
             icon: this.mapData.tomtom.L.icon({
@@ -95,8 +95,8 @@ export class DrawMapService {
      */
     drawCurrentPosition(coords) {
         this.mapData.currPosLayer.clearLayers();
-        var currentLocation = coords;
-        var markerOptions = {
+        let currentLocation = coords;
+        let markerOptions = {
             title: 'Search Center\nLatitude: ' + currentLocation[0] +
                 '\nLongitude: ' + currentLocation[1],
             icon: this.mapData.tomtom.L.icon({
@@ -121,15 +121,15 @@ export class DrawMapService {
         optimizedLocations.optimizedLocationsArr.shift();
 
         optimizedLocations.optimizedLocationsArr.forEach((coordinates, index) => {
-            var svgText = '<svg width="30" height="36" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">' +
+            let svgText = '<svg width="30" height="36" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">' +
                 '<ellipse id="svg_1" fill="#000" opacity="0.2" ry="2" rx="7.661" cy="34" cx="15"/>' +
                 '<path id="svg_2" fill="#000" d="m25.6,4.4c-2.7,-2.7 -6.5,-4.4 -10.6,-4.4s-7.9,1.7 -10.6,4.4c-2.7,2.7 -4.4,6.5 -4.4,10.6s1.7,7.9 4.4,10.6c2.7,2.7 10.6,8.9 10.6,8.9s7.9,-6.2 10.6,-8.9c2.7,-2.7 4.4,-6.5 4.4,-10.6s-1.7,-7.9 -4.4,-10.6z"/>' +
                 '<circle id="svg_3" fill="none" r="12" cy="15" cx="15" class="innerCircle"/>' +
                 '<text fill="#ffffff" stroke="#000000" stroke-width="0" x="15" y="23" id="svg_4" font-size="24" font-family="serif" font-weight="900" text-anchor="middle" xml:space="preserve">' + (index + 1) + '</text>' +
                 '</svg>';
 
-            var url = 'data:image/svg+xml,' + encodeURIComponent(svgText);
-            var myIcon = L.icon({
+            let url = 'data:image/svg+xml,' + encodeURIComponent(svgText);
+            let myIcon = L.icon({
                 iconUrl: url,
                 iconSize: [30, 36],
                 iconAnchor: [15, 36]

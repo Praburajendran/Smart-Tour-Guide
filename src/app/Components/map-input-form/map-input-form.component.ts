@@ -37,21 +37,21 @@ export class MapInputFormComponent implements AfterViewInit {
 
     /* Search places based on input */
     searchCurrentPos = async (geoResponses, priceArr, placeVal, coords) => {
-        var locations = [];
+        let locations = [];
         if (geoResponses.length > 0) {
             geoResponses.forEach((elem) => {
                 locations.push(elem.position);
             });
             (locations.length > 9) ? locations.length = 9: locations.length;
             geoResponses.length = locations.length;
-            var newResultArr = [],
+            let newResultArr = [],
                 promiseList = [];
 
             geoResponses.forEach((placedetail) => {
                 promiseList.push(this.venueidsrvc.search(placedetail));
             });
 
-            var nosearcharr = [];
+            let nosearcharr = [];
             newResultArr = await Promise.all(promiseList);
             newResultArr.forEach((elem, index) => {
                 if (!elem) {
@@ -59,7 +59,7 @@ export class MapInputFormComponent implements AfterViewInit {
                 } else if (elem.venueHours == false) {
                     nosearcharr.push(index);
                 }
-                var priceFlag;
+                let priceFlag;
                 priceArr.forEach((priceElem) => {
                     priceFlag = true;
                     if (elem.venuePrice && (elem.venuePrice != priceElem)) {
@@ -93,27 +93,27 @@ export class MapInputFormComponent implements AfterViewInit {
         } else {
             priceArr.push(formResponse.price);
         }
-        var placeVal = formResponse.place;
+        let placeVal = formResponse.place;
 
         if (!queryVal) {
             return false;
         }
 
-        var selectedSearch = 'poiSearch';
-        var callFlag = false;
-        var searchCall = this.utilitysrvc.prepareServiceCall(placeVal, selectedSearch, queryVal, callFlag, null);
+        let selectedSearch = 'poiSearch';
+        let callFlag = false;
+        let searchCall = this.utilitysrvc.prepareServiceCall(placeVal, selectedSearch, queryVal, callFlag, null);
         if (!searchCall) {
             return false;
         }
         searchCall.go(async (geoResponses) => {
             if (placeVal != 'Your location') {
-                var coords = [];
+                let coords = [];
                 if (geoResponses.length) {
                     coords.push(geoResponses[0].position.lat.toFixed(7).toString());
                     coords.push(geoResponses[0].position.lon.toFixed(7).toString());
                 }
                 callFlag = true;
-                var newCall = this.utilitysrvc.prepareServiceCall(placeVal, selectedSearch, queryVal, callFlag, coords);
+                let newCall = this.utilitysrvc.prepareServiceCall(placeVal, selectedSearch, queryVal, callFlag, coords);
                 if (!newCall) {
                     return false;
                 }

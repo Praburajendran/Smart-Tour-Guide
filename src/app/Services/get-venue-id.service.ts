@@ -30,17 +30,17 @@ export class GetVenueIdService {
         venueidparams = venueidparams.append('client_id', this.mapConst.foursqrcliid);
         venueidparams = venueidparams.append('client_secret', this.mapConst.foursqrcliscrt);
 
-        var venueidPromise = this.httpClient.get(this.mapConst.venueidurl, {
+        let venueidPromise = this.httpClient.get(this.mapConst.venueidurl, {
             params: venueidparams
         }).first().toPromise();
 
-        var venueidresponse = await venueidPromise;
-        var venueArr = venueidresponse["response"]["venues"];
-        var venueid, exactid, partialid, subidmatch;
+        let venueidresponse = await venueidPromise;
+        let venueArr = venueidresponse["response"]["venues"];
+        let venueid, exactid, partialid, subidmatch;
         if (venueArr.length >= 1) {
             venueArr.forEach(function(venue) {
-                var venuename = venue.name.toLowerCase();
-                var placenametom = placedetail.poi.name.toLowerCase();
+                let venuename = venue.name.toLowerCase();
+                let placenametom = placedetail.poi.name.toLowerCase();
                 if (venuename === placenametom) {
                     exactid = venue.id;
                     return;
@@ -62,11 +62,11 @@ export class GetVenueIdService {
             return false;
         }
 
-        var venueplacePromise = this.venueplacesrvc.getPlaceDetail(venueid).first().toPromise();
-        var venueplaceresponse = await venueplacePromise;
+        let venueplacePromise = this.venueplacesrvc.getPlaceDetail(venueid).first().toPromise();
+        let venueplaceresponse = await venueplacePromise;
 
-        var venueObj = {};
-        var venuePrice, venueHours;
+        let venueObj = {};
+        let venuePrice, venueHours;
         if (venueplaceresponse["response"]["venue"]["price"]) {
             venuePrice = venueplaceresponse["response"]["venue"]["price"]["tier"];
         }

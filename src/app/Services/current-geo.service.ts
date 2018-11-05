@@ -10,32 +10,19 @@ export class CurrentGeoService {
 
     constructor() {}
 
-    // Creating observer with current location
-    autoUpdate() {
-        return new Observable((observer) => {
-            this.getCurrentGeo().then(function(pos) {
-                observer.next(pos);
-            })
-            setInterval(() => {
-                this.getCurrentGeo().then(function(pos) {
-                    observer.next(pos);
-                })
-            }, 60000)
-        })
-    }
-
     // Getting current location
-    async getCurrentGeo() {
-        var geopromise = new Promise(function(resolve, reject) {
+   autoUpdate() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    resolve(position)
-                })
-            }
-        });
-
-        var promiseVal = await geopromise;
-        return promiseVal;
+                return new Observable((observer) =>{
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        observer.next(position)
+                    })
+                     setInterval(() => {
+                        navigator.geolocation.getCurrentPosition(function(position) {
+                            observer.next(position)
+                        })
+                    }, 60000)              
+            })
     }
-
+   }
 }

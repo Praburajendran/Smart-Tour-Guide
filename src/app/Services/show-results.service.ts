@@ -26,7 +26,7 @@ export class ShowResultsService {
      */
     getResultAddress = (result) => {
         if (typeof result.address !== 'undefined') {
-            var address = [];
+            let address = [];
 
             if (typeof result.address.freeformAddress !== 'undefined') {
                 address.push(result.address.freeformAddress);
@@ -47,18 +47,18 @@ export class ShowResultsService {
      * Prepare result element for popup and result list
      */
     prepareResultElement = (tomtom, result) => {
-        var resultElement = new tomtom.L.DomUtil.create('div', 'geoResponse-result');
-        var name = this.getResultName(result);
-        var adress = this.getResultAddress(result);
+        let resultElement = new tomtom.L.DomUtil.create('div', 'geoResponse-result');
+        let name = this.getResultName(result);
+        let adress = this.getResultAddress(result);
 
         if (typeof name !== 'undefined') {
-            var nameWrapper = tomtom.L.DomUtil.create('div', 'geoResponse-result-name');
+            let nameWrapper = tomtom.L.DomUtil.create('div', 'geoResponse-result-name');
             nameWrapper.innerHTML = name;
             resultElement.appendChild(nameWrapper);
         }
 
         if (typeof adress !== 'undefined') {
-            var addressWrapper = tomtom.L.DomUtil.create('div', 'geoResponse-result-address');
+            let addressWrapper = tomtom.L.DomUtil.create('div', 'geoResponse-result-address');
             addressWrapper.innerHTML = adress;
             resultElement.appendChild(addressWrapper);
         }

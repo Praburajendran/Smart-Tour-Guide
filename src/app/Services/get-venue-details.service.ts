@@ -26,7 +26,7 @@ export class GetVenueDetailsService {
         venueplaceparams = venueplaceparams.append('client_id', this.mapConst.foursqrcliid);
         venueplaceparams = venueplaceparams.append('client_secret', this.mapConst.foursqrcliscrt);
 
-        var venueplacereq = this.httpClient.get(this.mapConst.venueplaceurl, {
+        let venueplacereq = this.httpClient.get(this.mapConst.venueplaceurl, {
             params: venueplaceparams
         });
 
