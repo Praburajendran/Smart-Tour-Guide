@@ -222,7 +222,6 @@ export class MapUtilityService {
     }
 
     getCoordsService() {
-        //var coords = [this.latInput.value, this.lonInput.value];
         //var coords = ["51.507351","-0.127758"]; //london
         //coords = ["12.7879934","77.6512728"]; //jigani
 
