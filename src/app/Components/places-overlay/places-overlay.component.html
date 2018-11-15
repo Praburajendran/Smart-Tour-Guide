@@ -1,0 +1,41 @@
+  <!-- Modal -->
+  <div class="modal fade" id="overlayval" role="dialog" #overlayval>
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Place Details</h3>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <h4>Comments</h4>
+                <ul>
+                  <li *ngFor="let comments of commentslist"> 
+                    {{ comments.name }} --> {{ comments.desc }}
+                  </li>
+                </ul>
+
+                <h4>Tips</h4>
+                <ul>
+                  <li *ngFor="let tips of tipslist"> 
+                    {{ tips }}
+                  </li>
+                </ul>
+              </div>
+              <div class="col-sm">
+                <div *ngFor="let imagess of photoslist"> 
+                 <a href={{imagess}} target="_blank"><img src={{imagess}} height="200" width="200"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

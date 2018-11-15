@@ -5,7 +5,7 @@ export class MapConstants {
     public mapprodinfo = 'MapsWebSDKExamplesSelfhosted';
     public foursqrcliid = '';
     public foursqrcliscrt = '';
-    public foursqrtoken = '20181230';
+    public foursqrtoken = '';
     public venueidurl = 'https://api.foursquare.com/v2/venues/search';
     public venueplaceurl = 'https://api.foursquare.com/v2/venues/'
 }

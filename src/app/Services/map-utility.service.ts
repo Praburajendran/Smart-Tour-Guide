@@ -222,10 +222,11 @@ export class MapUtilityService {
     }
 
     getCoordsService() {
+        //var coords = [this.latInput.value, this.lonInput.value];
         //var coords = ["51.507351","-0.127758"]; //london
         //coords = ["12.7879934","77.6512728"]; //jigani
 
-        var that;
+        var that = [];
         this.geoservice.autoUpdate().subscribe({
             next(position) {
                 that = position["coords"];
@@ -234,7 +235,9 @@ export class MapUtilityService {
                 console.log('Error Getting Location: ', msg);
             }
         });
-        window.setTimeout(() => {this.currgeoposition = that}, 2000);
+        window.setTimeout(() => {
+            this.currgeoposition = that;
+        }, 5000);
         window.setInterval(() => {
             this.currgeoposition = that;
             if (this.placeVal == 'Your location') {

@@ -21,7 +21,7 @@ export class GetVenueIdService {
         this.mapConst = new MapConstants();
     }
 
-    async search(placedetail) {
+    async search(placedetail, overlayFlag) {
         let venueidparams = new HttpParams();
 
         venueidparams = venueidparams.append('ll', placedetail.position.lat + ',' + placedetail.position.lon);
@@ -64,6 +64,12 @@ export class GetVenueIdService {
 
         let venueplacePromise = this.venueplacesrvc.getPlaceDetail(venueid).first().toPromise();
         let venueplaceresponse = await venueplacePromise;
+        console.log('this is venue palce respponse')
+        console.log(venueplaceresponse);
+
+        if(overlayFlag){
+            return venueplaceresponse;
+        }
 
         let venueObj = {};
         let venuePrice, venueHours;
